@@ -1,11 +1,10 @@
 package com.company;
-
+import com.company.alexander.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
 class Encoder {
-
     public static void out(String f) {
         System.out.print(f);
     }
@@ -21,5 +20,6 @@ class Encoder {
             e.printStackTrace();
         }
         out("Выбирите один из способов шифрования\n1-Шифр Фибаначи");
+        Choice.choice(text,in.nextInt());
     }
 }

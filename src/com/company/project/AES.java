@@ -10,13 +10,11 @@ public class AES {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         try {
-
             String key = Key.key();
-            // текст
-            byte[] ciphertext = Encript.encrypt(key, "Меня зовут Николай Бондарь");
-            System.out.println("encrypted value:" + new String(ciphertext));
-            System.out.println("decrypted value:" + (Decrypt.decrypt(key, ciphertext)));
-
+//            к тектсу
+            String text = ChoiceText.text(in.nextInt());
+            AesText.text(key,text);
+            //к  файлам
             byte[] array = Input.Input(in.nextLine());
 
             byte[] cipher = Encript.encrypt(key, array);

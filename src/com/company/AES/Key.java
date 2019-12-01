@@ -1,4 +1,4 @@
-package com.company.project;
+package com.company.AES;
 import java.util.Scanner;
 public class Key {
     public static String key(){

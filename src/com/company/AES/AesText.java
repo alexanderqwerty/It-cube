@@ -1,4 +1,4 @@
-package com.company.project;
+package com.company.AES;
 
 import java.security.GeneralSecurityException;
 

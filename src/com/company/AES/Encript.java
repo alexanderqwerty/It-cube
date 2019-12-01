@@ -1,4 +1,4 @@
-package com.company.project;
+package com.company.AES;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;

@@ -1,4 +1,4 @@
-package com.company.project;
+package com.company.AES;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,14 +8,12 @@ import java.util.Scanner;
 public class AES {
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        try {
-            String key = Key.key();
-//            к тектсу
-            String text = ChoiceText.text(in.nextInt());
-            AesText.text(key,text);
-            //к  файлам
-            byte[] array = Input.Input(in.nextLine());
+
+        String key = Key.key();
+        String text = ChoiceText.text();
+        AesText.text(key,text);
+        //к  файлам
+            /*byte[] array = Input.Input(in.nextLine());
 
             byte[] cipher = Encript.encrypt(key, array);
             FileOutputStream f = null;
@@ -32,10 +30,7 @@ public class AES {
                 f.write(cipher);
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            }*/
 
-        } catch (GeneralSecurityException e) {
-            e.printStackTrace();
-        }
     }
 }

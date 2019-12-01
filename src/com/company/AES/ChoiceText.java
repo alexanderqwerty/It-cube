@@ -19,10 +19,10 @@ public class ChoiceText {
                 text = in.nextLine();
                 break;
             case (2):
-                List<String> text2 = null;
+                String ras = in.nextLine();
                 try {
 
-                    Scanner text3 = new Scanner(new File("C:\\Users\\duduc\\Desktop\\Новый текстовый документ (3).TXT"));
+                    Scanner text3 = new Scanner(new File(ras));
                     while (text3.hasNext())
                         text += text3.nextLine() + "\r\n";
                 } catch (IOException e) {

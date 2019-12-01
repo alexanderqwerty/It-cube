@@ -7,16 +7,18 @@ import java.util.Scanner;
 
 public class AES {
 
-    public static void main(String[] args) {
+    public static void File(String key) {
+        Scanner in = new Scanner(System.in);
 
-        String key = Key.key();
-        String text = ChoiceText.text();
-        AesText.text(key,text);
-        //к  файлам
-            /*byte[] array = Input.Input(in.nextLine());
+        byte[] array = Input.Input(in.nextLine());
 
-            byte[] cipher = Encript.encrypt(key, array);
-            FileOutputStream f = null;
+        byte[] cipher = new byte[0];
+        try {
+            cipher = Encript.encrypt(key, array);
+        } catch (GeneralSecurityException e) {
+            e.printStackTrace();
+        }
+        FileOutputStream f = null;
             try {
                 f = new FileOutputStream("Стойка-1х2м.png");
                 f.write(cipher);
@@ -24,13 +26,17 @@ public class AES {
                 e.printStackTrace();
             }
 
+        try {
             cipher = Decrypt.decrypt(key, cipher, true);
-            try {
+        } catch (GeneralSecurityException e) {
+            e.printStackTrace();
+        }
+        try {
                 f = new FileOutputStream("Стойка-1х2м2.png");
                 f.write(cipher);
             } catch (IOException e) {
                 e.printStackTrace();
-            }*/
+            }
 
     }
 }

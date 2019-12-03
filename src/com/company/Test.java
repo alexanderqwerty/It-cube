@@ -7,7 +7,7 @@ public class Test {
     private static boolean flag;
 
     public static void main(String[] args) {
-        func("c:\\", "Test.TXT");
+        func("c:\\", "nati.TXT");
     }
 
     private static void func(String path, String find) {

@@ -7,7 +7,7 @@ public class Test {
     private static boolean flag;
 
     public static void main(String[] args) {
-        func("c:\\", "nati.TXT");
+        func("c:\\\\", "nati.TXT");
     }
 
     private static void func(String path, String find) {
@@ -31,6 +31,7 @@ public class Test {
                         func(path + file, find);
                         if (flag) {
                             System.out.println(path + file + "\\\\" + find);
+                            flag = false;
                             return;
                         }
                     }

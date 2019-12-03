@@ -1,12 +1,9 @@
 package com.company.AES;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class ChoiceText {
@@ -19,15 +16,7 @@ public class ChoiceText {
                 text = in.nextLine();
                 break;
             case (2):
-                String ras = in.nextLine();
-                try {
 
-                    Scanner text3 = new Scanner(new File(ras));
-                    while (text3.hasNext())
-                        text += text3.nextLine() + "\r\n";
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
                 break;
             default:
                 text();

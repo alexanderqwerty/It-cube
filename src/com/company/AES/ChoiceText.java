@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class ChoiceText {
     public static void text(int k) {
         Scanner in = new Scanner(System.in);
-        String text;
+
+
         switch (k) {
             case (1):
                 String key;
@@ -17,6 +18,7 @@ public class ChoiceText {
                 int num = in.nextInt();
                 switch (num) {
                     case (1):
+                        String text = in.nextLine();
                         text = in.nextLine();
                         AesText.text(key,text);
                     break;

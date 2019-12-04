@@ -7,14 +7,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
+        System.out.println("Выберите способ шифрования(1-AES,2-RSA)");
         int k = in.nextInt();
-        String key;
-        key = Key.key();
-        switch (k){
-            case(1):
+        ChoiceText.text(k);
 
-            case(2):
 
-        }
     }
 }

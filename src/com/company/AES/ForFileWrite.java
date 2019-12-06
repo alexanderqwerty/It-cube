@@ -1,21 +1,20 @@
 package com.company.AES;
 
-import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.security.GeneralSecurityException;
 import java.util.Scanner;
 
-public class Output {
-    public static void out(byte[] cipher) {
+public class ForFileWrite {
+    public static void Write(String text) throws IOException {
         Scanner in = new Scanner(System.in);
         System.out.println("Напишите полно расположение куда файл будет сохранён");
         String ras = in.nextLine();
-        FileOutputStream f = null;
+        FileWriter fout = null;
         try {
-            f = new FileOutputStream(ras);
-            f.write(cipher);
+            fout = new FileWriter(ras);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        fout.write(text);
     }
 }

@@ -13,7 +13,8 @@ public class ChoiceText {
                 System.out.println("Введите 16 значный ключ");
                 key = in.nextLine();
                 System.out.println("Выберите что будете шифровать:\n1-Ввод в консоль" +
-                        "\n2-Прелбразование любого файла");
+                        "\n2-Прелбразование текста в файле"+
+                        "\n3-Прелбразование любого файла");
                 int num = in.nextInt();
                 switch (num) {
                     case (1):

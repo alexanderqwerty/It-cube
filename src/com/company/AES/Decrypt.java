@@ -22,7 +22,7 @@ public class Decrypt {
 
         return original;
     }
-    public static String decrypt(String key, byte[] encrypted)
+    public static byte[] decrypt(String key, byte[] encrypted)
             throws GeneralSecurityException {
 
         byte[] raw = key.getBytes();
@@ -34,8 +34,6 @@ public class Decrypt {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(Cipher.DECRYPT_MODE, skeySpec,
                 new IvParameterSpec(new byte[16]));
-        byte[] original = cipher.doFinal(encrypted);
-
-        return new String(original);
+        return cipher.doFinal(encrypted);
     }
 }

@@ -1,15 +1,10 @@
 package com.company.RSA;
 
-import com.company.AES.Key;
-
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import java.math.BigInteger;
 import java.security.*;
-import java.util.List;
-import java.util.Scanner;
 
 public class RSA {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {

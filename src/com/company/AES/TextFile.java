@@ -1,6 +1,5 @@
 package com.company.AES;
 
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -19,6 +18,6 @@ public class TextFile {
             text();
             e.printStackTrace();
         }
-        return text().toString().getBytes();
+        return text.toString().getBytes();
     }
 }

@@ -5,9 +5,10 @@ public class Animal {
     int age;
     String wool;
     String sound;
-    Animal(int age, String wool,String name){
+
+    Animal(int age, String wool, String name) {
         this.age = age;
-        this.wool= wool;
+        this.wool = wool;
         this.name = name;
     }
 

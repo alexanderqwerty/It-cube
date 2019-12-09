@@ -13,8 +13,14 @@ public class AesText {
         System.out.println("encrypted value:" + new String(ciphertext));
     }
     public static void textDe(String key,String text){
+        String ciphertext = "";
         try {
-            System.out.println("decrypted value:" + (Decrypt.decrypt(key, text.getBytes())));
+            ciphertext = Decrypt.decrypt(key, text.getBytes());
+        } catch (GeneralSecurityException e) {
+            e.printStackTrace();
+        }
+        try {
+            System.out.println("decrypted value:" + (Decrypt.decrypt(key, ciphertext.getBytes())));
         } catch (GeneralSecurityException e) {
             e.printStackTrace();
         }

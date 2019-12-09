@@ -1,42 +1,110 @@
 package com.company;
 
-import java.io.File;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.GeneralSecurityException;
 
 public class Test {
 
-    private static boolean flag;
-
     public static void main(String[] args) {
-        func("c:\\\\", "nati.TXT");
+        try {
+
+            String key = "MySecretPas12345";
+            // текст
+            byte[] ciphertext = encrypt(key, "Меня зовут Николай Бондарь");
+            System.out.println("encrypted value:" + new String(ciphertext));
+            System.out.println("decrypted value:" + (decrypt(key, ciphertext)));
+
+//            byte[] array = null;
+//            try {
+//                array = Files.readAllBytes(Paths.get("C:\\Users\\nikol\\Desktop\\Стойка-1х2м.png"));
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            byte[] cipher = encrypt(key, array);
+//            FileOutputStream f = null;
+//            try {
+//                f = new FileOutputStream("Стойка-1х2м.png");
+//                f.write(cipher);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//            cipher = decrypt(key, cipher, true);
+//            try {
+//                f = new FileOutputStream("Стойка-1х2м2.png");
+//                f.write(cipher);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+
+        } catch (GeneralSecurityException e) {
+            e.printStackTrace();
+        }
     }
 
-    private static void func(String path, String find) {
-        File f = new File(path);
-        String[] list = f.list();
+    public static byte[] encrypt(String key, String value)
+            throws GeneralSecurityException {
 
-        if (list != null) {
-            for (String file : list) {
-
-                if (find.equals(file)) {
-                    flag = true;
-                    return;
-                }
-                if (!path.endsWith("\\\\")) {
-                    path += "\\\\";
-                }
-
-                File tempfile = new File(path, file);
-                if (!file.equals(".") && !file.equals("..")) {
-                    if (tempfile.isDirectory()) {
-                        func(path + file, find);
-                        if (flag) {
-                            System.out.println(path + file + "\\\\" + find);
-                            flag = false;
-                            return;
-                        }
-                    }
-                }
-            }
+        byte[] raw = key.getBytes();
+        if (raw.length != 16) {
+            throw new IllegalArgumentException("Invalid key size.");
         }
+
+        SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher.init(Cipher.ENCRYPT_MODE, skeySpec,
+                new IvParameterSpec(new byte[16]));
+        return cipher.doFinal(value.getBytes());
+    }
+
+    public static byte[] encrypt(String key, byte[] value)
+            throws GeneralSecurityException {
+
+        byte[] raw = key.getBytes();
+        if (raw.length != 16) {
+            throw new IllegalArgumentException("Invalid key size.");
+        }
+
+        SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher.init(Cipher.ENCRYPT_MODE, skeySpec,
+                new IvParameterSpec(new byte[16]));
+        return cipher.doFinal(value);
+    }
+
+    public static byte[] decrypt(String key, byte[] encrypted, boolean flag)
+            throws GeneralSecurityException {
+
+        byte[] raw = key.getBytes();
+        if (raw.length != 16) {
+            throw new IllegalArgumentException("Invalid key size.");
+        }
+        SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
+
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher.init(Cipher.DECRYPT_MODE, skeySpec,
+                new IvParameterSpec(new byte[16]));
+        byte[] original = cipher.doFinal(encrypted);
+
+        return original;
+    }
+
+    public static String decrypt(String key, byte[] encrypted)
+            throws GeneralSecurityException {
+
+        byte[] raw = key.getBytes();
+        if (raw.length != 16) {
+            throw new IllegalArgumentException("Invalid key size.");
+        }
+        SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
+
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+        cipher.init(Cipher.DECRYPT_MODE, skeySpec,
+                new IvParameterSpec(new byte[16]));
+        byte[] original = cipher.doFinal(encrypted);
+
+        return new String(original);
     }
 }

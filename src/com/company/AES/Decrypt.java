@@ -27,17 +27,16 @@ public class Decrypt {
             throws GeneralSecurityException {
 
         byte[] raw = key.getBytes();
-        if (raw.length != 16) {
-            throw new IllegalArgumentException("Invalid key size.");
-        }
-        SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
+        if (raw.length == 16) {
+            SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
 
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        cipher.init(Cipher.DECRYPT_MODE, skeySpec,
-                new IvParameterSpec(new byte[16]));
-        byte[] original = cipher.doFinal(encrypted);
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(Cipher.DECRYPT_MODE, skeySpec,
+                    new IvParameterSpec(new byte[16]));
+            byte[] original = cipher.doFinal(encrypted);
 
-        return new String(original);
+            return new String(original);
+        } else throw new IllegalArgumentException("Invalid key size.");
 
     }
 }

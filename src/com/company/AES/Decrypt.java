@@ -6,6 +6,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.security.GeneralSecurityException;
 
 public class Decrypt {
+    //Расшифровать байты файла
     public static byte[] decrypt(String key, byte[] encrypted, boolean flag)
             throws GeneralSecurityException, IllegalArgumentException {
 
@@ -21,7 +22,7 @@ public class Decrypt {
 
         return cipher.doFinal(encrypted);
     }
-
+    //Расшифровать текст
     public static String decrypt(String key, byte[] encrypted)
             throws GeneralSecurityException {
 
@@ -30,7 +31,6 @@ public class Decrypt {
             throw new IllegalArgumentException("Invalid key size.");
         }
         SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
-
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
         cipher.init(Cipher.DECRYPT_MODE, skeySpec,
                 new IvParameterSpec(new byte[16]));

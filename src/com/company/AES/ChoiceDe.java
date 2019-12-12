@@ -32,15 +32,13 @@ public class ChoiceDe {
 //                        Output.out(Base64.getDecoder().decode(end));
                         break;
                     case (3):
-                        byte[] text2 = Input.Input();
-                        byte[] end = new byte[0];
+                        byte[] fileBytes = Input.Input();
                         try {
-                            end = Decrypt.decrypt(key, text2, true);
+                            fileBytes = Decrypt.decrypt(key, fileBytes, true);
                         } catch (GeneralSecurityException e) {
                             e.printStackTrace();
                         }
-                        Output.out(end);
-                        Output.out(text2);
+                        Output.out(fileBytes);
                         break;
                     default:
                         text();

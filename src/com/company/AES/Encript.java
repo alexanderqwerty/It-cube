@@ -23,7 +23,6 @@ public class Encript {
     }
     public static byte[] encrypt(String key, byte[] value)
             throws GeneralSecurityException {
-
         byte[] raw = key.getBytes();
         if (raw.length != 16) {
             throw new IllegalArgumentException("Invalid key size.");

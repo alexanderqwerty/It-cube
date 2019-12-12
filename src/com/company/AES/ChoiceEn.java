@@ -42,10 +42,10 @@ public class ChoiceEn {
                         Output.out(end);
                         break;
                     case (3):
-                        text2 = Input.Input().toString();
+                        byte[] fileBytes = Input.Input();
                         end = new byte[0];
                         try {
-                            end = Encript.encrypt(key,text2);
+                            end = Encript.encrypt(key,fileBytes);
                         } catch (GeneralSecurityException e) {
                             e.printStackTrace();
                         }

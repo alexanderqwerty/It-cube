@@ -1,18 +1,11 @@
 package com.company.AES;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Scanner;
 
 public class ChoiceEn {
-    public static void text() throws UnsupportedEncodingException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
+    public static void text() {
 
         Scanner in = new Scanner(System.in);
 
@@ -21,9 +14,9 @@ public class ChoiceEn {
             System.out.println("Введите 16 значный ключ");
             key = in.nextLine();
         }
-        System.out.println("Выберите что будете шифровать:\n\t1-Ввод в консоль" +
-                "\n\t2-Прелбразование текста в файле" +
-                "\n\t3-Прелбразование любого файла");
+        System.out.println("Выберите как будете шифровать:\n\t1-Ввод в консоль" +
+                "\n\t2-Преобразование текста в файле" +
+                "\n\t3-Преобразование любого файла");
         int num = in.nextInt();
         in.nextLine();
         switch (num) {

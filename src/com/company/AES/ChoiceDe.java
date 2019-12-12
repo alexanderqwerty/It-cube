@@ -15,15 +15,15 @@ public class ChoiceDe {
             System.out.println("Введите 16 значный ключ");
             key = in.nextLine();
         }
-        System.out.println("Выберите что будете разшифровывать:\n1-Ввод в консоль" +
-                "\n2-Расшифровка текста в файле" +
-                "\n3-Прелбразование любого файла");
+        System.out.println("Выберите как будете расшифровывать:\n\t1-Ввод в консоль" +
+                "\n\t2-Расшифровка текста в файле" +
+                "\n\t3-Преобразование любого файла");
         int num = in.nextInt();
+        in.nextLine();
         switch (num) {
             case (1):
                 System.out.println("Введите текст:");
                 String text = in.nextLine();
-                text = in.nextLine();
                 textDe(key, text);
                 break;
             case (2):

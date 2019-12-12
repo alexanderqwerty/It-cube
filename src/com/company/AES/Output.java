@@ -9,7 +9,7 @@ public class Output {
     //Вывод байтов с запросом пути файла
     public static void out(byte[] cipher) {
         Scanner in = new Scanner(System.in);
-        System.out.println("Напишите полное расположение файла и его название (куда он будет сохранён)");
+        System.out.println("Введите полное расположение файла и его название (куда он будет сохранён)");
         String ras = in.nextLine();
         FileOutputStream f = null;
         try {
@@ -22,7 +22,7 @@ public class Output {
     //Вывод строки с запросом пути файла
     public static void out(String cipher) {
         Scanner in = new Scanner(System.in);
-        System.out.println("Напишите полно расположение куда файл будет сохранён и название");
+        System.out.println("Введите полное расположение файла и его название (куда он будет сохранён)");
         String ras = in.nextLine();
         FileWriter f = null;
         try {

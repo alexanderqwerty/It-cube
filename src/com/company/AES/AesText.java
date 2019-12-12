@@ -1,6 +1,5 @@
 package com.company.AES;
 
-import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
 import java.util.Base64;
 
@@ -9,7 +8,7 @@ public class AesText {
         byte[] ciphertext = new byte[0];
         try {
             ciphertext = Encript.encrypt(key, text);
-        } catch (GeneralSecurityException | UnsupportedEncodingException e) {
+        } catch (GeneralSecurityException e) {
             e.printStackTrace();
         }
         System.out.println("Зашифрованный текст:\n" + Base64.getEncoder().encodeToString(ciphertext));

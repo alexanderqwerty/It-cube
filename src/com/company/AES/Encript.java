@@ -3,13 +3,12 @@ package com.company.AES;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 
 public class Encript {
     public static byte[] encrypt(String key, String value)
-            throws GeneralSecurityException, UnsupportedEncodingException {
+            throws GeneralSecurityException {
 
         byte[] raw = key.getBytes();
         if (raw.length != 16) {

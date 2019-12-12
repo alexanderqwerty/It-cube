@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Input {
     public static byte[] Input() {
         Scanner in = new Scanner(System.in);
-        System.out.print(" расположение файла:");
+        System.out.print("Введите расположение файла:");
         String ras = in.nextLine();
         byte[] array = null;
         try {

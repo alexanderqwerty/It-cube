@@ -12,7 +12,7 @@ public class AesText {
         } catch (GeneralSecurityException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        System.out.println("encrypted value:" + Base64.getEncoder().encodeToString(ciphertext));
+        System.out.println("Зашифрованный текст:\n" + Base64.getEncoder().encodeToString(ciphertext));
     }
 
     public static void textDe(String key, String text) {
@@ -22,6 +22,6 @@ public class AesText {
         } catch (GeneralSecurityException e) {
             e.printStackTrace();
         }
-        System.out.println("decrypted value:" + ciphertext);
+        System.out.println("Расшифрованный текст:\n" + ciphertext);
     }
 }

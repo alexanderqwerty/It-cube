@@ -21,27 +21,23 @@ public class Main extends TextFile {
             Choice.choice();
         } catch (UnsupportedEncodingException | NoSuchPaddingException | InvalidAlgorithmParameterException | NoSuchAlgorithmException | IllegalBlockSizeException | BadPaddingException | InvalidKeyException e) {
             e.printStackTrace();
+        } catch (GeneralSecurityException e) {
+            e.printStackTrace();
         }
 
 
     }
     public static class Choice {
-        public static void choice() throws UnsupportedEncodingException, NoSuchPaddingException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+        public static void choice() throws UnsupportedEncodingException, GeneralSecurityException {
             Scanner in = new Scanner(System.in);
-            System.out.println("1-Шифрование или 2-Разшифровка");
+            System.out.println("1-Шифрование или 2-Расшифровка");
             int f = in.nextInt();
             switch (f) {
                 case (1):
                     ChoiceEn.text();
                     break;
                 case (2):
-                    try {
-                        ChoiceDe.text();
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    } catch (GeneralSecurityException e) {
-                        e.printStackTrace();
-                    }
+                    ChoiceDe.text();
                     break;
                 default:
                     choice();

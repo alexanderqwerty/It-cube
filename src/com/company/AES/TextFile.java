@@ -6,6 +6,7 @@ import javax.crypto.NoSuchPaddingException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -15,7 +16,7 @@ public class TextFile {
     private static String filePath;
     public static byte[] text() throws UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         Scanner in = new Scanner(System.in);
-        System.out.print("Введите польное расположение файла(C:\\\\Users\\\\Student\\\\Desktop)");
+        System.out.print("Введите польное расположение файла(Пример C:\\\\Users\\\\Student\\\\Desktop):");
         filePath = in.nextLine();
         String text = "";
         try {
@@ -26,12 +27,12 @@ public class TextFile {
             text();
             e.printStackTrace();
         }
-        byte[] end = text.getBytes("utf-8");
+        byte[] end = text.getBytes(StandardCharsets.UTF_8);
         return end;
     }
     public static String getTextInFileBase64() throws UnsupportedEncodingException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
         Scanner in = new Scanner(System.in);
-        System.out.print("Введите польное расположение файла(C:\\\\Users\\\\Student\\\\Desktop)");
+        System.out.print("Введите польное расположение файла(Пример C:\\\\Users\\\\Student\\\\Desktop):");
         filePath = in.nextLine();
         String text = "";
         try {

@@ -12,7 +12,7 @@ public class Decrypt {
 
         byte[] raw = key.getBytes();
         if (raw.length != 16) {
-            throw new IllegalArgumentException("Invalid key size.");
+            throw new IllegalArgumentException("Неверный размер ключа.");
         }
         SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
 
@@ -22,13 +22,14 @@ public class Decrypt {
 
         return cipher.doFinal(encrypted);
     }
+
     //Расшифровать текст
     public static String decrypt(String key, byte[] encrypted)
             throws GeneralSecurityException {
 
         byte[] raw = key.getBytes();
         if (raw.length != 16) {
-            throw new IllegalArgumentException("Invalid key size.");
+            throw new IllegalArgumentException("Неверный размер ключа.");
         }
         SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");

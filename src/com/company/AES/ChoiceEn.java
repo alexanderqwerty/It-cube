@@ -13,52 +13,47 @@ import java.util.Scanner;
 
 public class ChoiceEn {
     public static void text() throws UnsupportedEncodingException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
-        System.out.println("Метод шифрования 1-AES 2-RSA");
+
         Scanner in = new Scanner(System.in);
-        int k = in.nextInt();
+
+        String key = "";
+        while (key.length() != 16) {
+            System.out.println("Введите 16 значный ключ");
+            key = in.nextLine();
+        }
+        System.out.println("Выберите что будете шифровать:\n\t1-Ввод в консоль" +
+                "\n\t2-Прелбразование текста в файле" +
+                "\n\t3-Прелбразование любого файла");
+        int num = in.nextInt();
         in.nextLine();
-        switch (k) {
+        switch (num) {
             case (1):
-                String key = "";
-                while (key.length() != 16) {
-                    System.out.println("Введите 16 значный ключ");
-                    key = in.nextLine();
-                }
-                System.out.println("Выберите что будете шифровать:\n\t1-Ввод в консоль" +
-                        "\n\t2-Прелбразование текста в файле" +
-                        "\n\t3-Прелбразование любого файла");
-                int num = in.nextInt();
-                in.nextLine();
-                switch (num) {
-                    case (1):
-                        String text = in.nextLine();
-                        AesText.textEn(key, text);
-                        break;
-                    case (2):
-                        byte[] text2 = TextFile.text();
-                        try {
-                            text2 = Encript.encrypt(key, text2);
-                        } catch (GeneralSecurityException e) {
-                            e.printStackTrace();
-                        }
-                        Output.out(Base64.getEncoder().encodeToString(text2));
-                        break;
-                    case (3):
-                        byte[] fileBytes = Input.Input();
-                        try {
-                            fileBytes = Encript.encrypt(key, fileBytes);
-                        } catch (GeneralSecurityException e) {
-                            e.printStackTrace();
-                        }
-                        Output.out(fileBytes);
-                        break;
-                    default:
-                        text();
-                }
+                System.out.println("Введите текст:");
+                String text = in.nextLine();
+                AesText.textEn(key, text);
                 break;
             case (2):
-
+                byte[] text2 = TextFile.text();
+                try {
+                    text2 = Encript.encrypt(key, text2);
+                } catch (GeneralSecurityException e) {
+                    e.printStackTrace();
+                }
+                Output.out(Base64.getEncoder().encodeToString(text2));
+                break;
+            case (3):
+                byte[] fileBytes = Input.Input();
+                try {
+                    fileBytes = Encript.encrypt(key, fileBytes);
+                } catch (GeneralSecurityException e) {
+                    e.printStackTrace();
+                }
+                Output.out(fileBytes);
+                break;
+            default:
+                text();
         }
     }
 }
+
 

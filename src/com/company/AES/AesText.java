@@ -1,5 +1,6 @@
 package com.company.AES;
 
+import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
 import java.util.Base64;
 
@@ -14,11 +15,12 @@ public class AesText {
         System.out.println("Зашифрованный текст:\n" + Base64.getEncoder().encodeToString(ciphertext));
     }
 
-    public static void textDe(String key, String text) {
+    public static void textDe(String key, String text) throws UnsupportedEncodingException, GeneralSecurityException {
         String ciphertext = "";
         try {
             ciphertext = (Decrypt.decrypt(key, Base64.getDecoder().decode(text)));
-        } catch (GeneralSecurityException e) {
+        } catch (GeneralSecurityException | java.lang.IllegalArgumentException e) {
+            ChoiceDe.text();
             e.printStackTrace();
         }
         System.out.println("Расшифрованный текст:\n" + ciphertext);

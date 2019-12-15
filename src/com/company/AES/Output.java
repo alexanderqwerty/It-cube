@@ -16,7 +16,7 @@ public class Output {
             f = new FileOutputStream(ras);
             f.write(cipher);
         } catch (IOException e) {
-            e.printStackTrace();
+
         }
     }
     //Вывод строки с запросом пути файла

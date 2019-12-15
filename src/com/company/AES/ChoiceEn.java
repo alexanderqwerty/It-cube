@@ -32,7 +32,8 @@ public class ChoiceEn {
                 } catch (GeneralSecurityException e) {
                     e.printStackTrace();
                 }
-                Output.out(Base64.getEncoder().encodeToString(text2));
+                Output.out(Base64.getEncoder().encodeToString(text2), TextFile.getFilePath());
+                System.out.println("Сделано!");
                 break;
             case (3):
                 byte[] fileBytes = Input.Input();
@@ -42,6 +43,7 @@ public class ChoiceEn {
                     e.printStackTrace();
                 }
                 Output.out(fileBytes);
+                System.out.println("Сделано!");
                 break;
             default:
                 text();

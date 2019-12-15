@@ -36,6 +36,7 @@ public class ChoiceDe {
                     e.printStackTrace();
                 }
                 Output.out(out, TextFile.getFilePath());
+                System.out.println("Сделано!");
                 break;
             case (3):
                 byte[] fileBytes = Input.Input();
@@ -45,6 +46,7 @@ public class ChoiceDe {
                     e.printStackTrace();
                 }
                 Output.out(fileBytes);
+                System.out.println("Сделано!");
                 break;
             default:
                 text();

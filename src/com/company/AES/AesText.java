@@ -15,14 +15,9 @@ public class AesText {
         System.out.println("Зашифрованный текст:\n" + Base64.getEncoder().encodeToString(ciphertext));
     }
 
-    public static void textDe(String key, String text) throws UnsupportedEncodingException, GeneralSecurityException {
+    public static void textDe(String key, String text) throws GeneralSecurityException {
         String ciphertext = "";
-        try {
-            ciphertext = (Decrypt.decrypt(key, Base64.getDecoder().decode(text)));
-        } catch (GeneralSecurityException | java.lang.IllegalArgumentException e) {
-            ChoiceDe.text();
-            e.printStackTrace();
-        }
+        ciphertext = (Decrypt.decrypt(key, Base64.getDecoder().decode(text)));
         System.out.println("Расшифрованный текст:\n" + ciphertext);
     }
 }

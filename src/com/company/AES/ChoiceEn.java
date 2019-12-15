@@ -1,18 +1,24 @@
 package com.company.AES;
 
+import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.util.Base64;
+import java.util.Locale;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ChoiceEn {
     public static void text() {
 
         Scanner in = new Scanner(System.in);
-
+        Pattern pattern = Pattern.compile("[A-z0-9]{16}");
         String key = "";
-        while (key.length() != 16) {
-            System.out.println("Введите 16 значный ключ");
+        Matcher matcher = pattern.matcher(key);
+        while (!matcher.find()) {
+            System.out.println("Введите 16 значный ключ (Используйте только латинские символы и цифры):");
             key = in.nextLine();
+            matcher = pattern.matcher(key);
         }
         System.out.println("Выберите как будете шифровать:\n\t1-Ввод в консоль" +
                 "\n\t2-Преобразование текста в файле" +

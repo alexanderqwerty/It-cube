@@ -10,7 +10,7 @@ public class Encript {
     public static byte[] encrypt(String key, String value)
             throws GeneralSecurityException {
 
-        byte[] raw = key.getBytes();
+        byte[] raw = key.getBytes(StandardCharsets.UTF_8);
         if (raw.length != 16) {
             throw new IllegalArgumentException("Неверный размер ключа.");
         }
